@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.permissions">
+
+    <permission-group
+        android:name="com.example.permission-group.LEBOWSKI"
+        android:description="@string/lebowski_group_description"
+        android:icon="@drawable/ic_baseline_accessibility_24"
+        android:label="@string/lebowski_group_label"
+        android:priority="100" />
+
+    <permission
+        android:name="com.example.permissions.WHERE_IS_THE_MONEY_LEBOWSKI"
+        android:description="@string/lebowski_description"
+        android:label="@string/lebowski"
+        android:permissionGroup="com.example.permission-group.LEBOWSKI"
+        android:protectionLevel="dangerous" />
+
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Permissions">
+        <activity
+            android:name=".file.FileListActivity"
+            android:exported="true" />
+        <activity
+            android:name=".group.PermissionGroupActivity"
+            android:exported="true"
+            android:label="@string/permission_groups" />
+        <activity
+            android:name=".contacts.ContactsActivity"
+            android:exported="true"
+            android:label="@string/contacts" />
+        <activity
+            android:name=".main.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Permissions</string>
+    <string name="contacts">Contacts</string>
+    <string name="permission_groups">Permission Groups</string>
+    <string name="internal_storage">Internal Storage</string>
+    <string name="external_storage">External Storage</string>
+    <string name="documents">Documents</string>
+    <string name="cache">Cache</string>
+    <string name="lebowski_title">Lebowski</string>
+    <string name="lebowski_group_label">Lebowski</string>
+    <string name="lebowski_group_description">kick your ass</string>
+    <string name="permission_granted">Permission Granted</string>
+    <string name="permission_denied">Permission Denied</string>
+    <string name="lebowski">Where\'s the money, Lebowski?</string>
+    <string name="lebowski_description">Where\'s the fucking money, shithead?</string>
+    <string name="ask">Ask</string>
+    <string name="costs_money">Costs Money</string>
+    <string name="add_file">Add File</string>
+</resources>
