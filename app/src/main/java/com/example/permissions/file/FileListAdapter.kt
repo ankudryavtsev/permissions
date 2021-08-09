@@ -3,18 +3,24 @@ package com.example.permissions.file
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.documentfile.provider.DocumentFile
 import androidx.recyclerview.widget.RecyclerView
 import com.example.permissions.R
 import com.example.permissions.databinding.FileListItemBinding
 import java.io.File
 
-class FileListAdapter(private val rootFile: File) :
+class FileListAdapter :
     RecyclerView.Adapter<FileListAdapter.ViewHolder>() {
 
-    private var files: Array<File> = rootFile.listFiles() ?: emptyArray()
+    private var files: List<String> = emptyList()
 
-    fun updateFiles() {
-        files = rootFile.listFiles() ?: emptyArray()
+    fun updateFiles(rootFile: File) {
+        files = listFiles(rootFile)
+        notifyDataSetChanged()
+    }
+
+    fun updateFiles(rootDocumentFile: DocumentFile) {
+        files = rootDocumentFile.listFiles().mapNotNull { it.name }
         notifyDataSetChanged()
     }
 
@@ -29,11 +35,14 @@ class FileListAdapter(private val rootFile: File) :
 
     override fun getItemCount() = files.size
 
+    private fun listFiles(rootFile: File): List<String> =
+        rootFile.listFiles()?.map { it.absolutePath } ?: emptyList()
+
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val binding = FileListItemBinding.bind(itemView)
 
-        fun bindView(file: File) {
-            binding.pathView.text = file.absolutePath
+        fun bindView(filePath: String) {
+            binding.pathView.text = filePath
         }
     }
 }

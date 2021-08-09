@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.permissions.R
 import com.example.permissions.contacts.ContactsActivity
 import com.example.permissions.databinding.ActivityMainBinding
+import com.example.permissions.file.AllFilesActivity
 import com.example.permissions.file.FileListActivity
 import com.example.permissions.group.PermissionGroupActivity
 
@@ -19,23 +20,23 @@ class MainActivity : AppCompatActivity() {
         binding.recyclerView.adapter = MainAdapter(
             listOf(
                 MainItem(R.string.contacts) {
-                startActivity(
-                    ContactsActivity.newIntent(this)
-                )
-            },
+                    startActivity(
+                        ContactsActivity.newIntent(this)
+                    )
+                },
                 MainItem(R.string.permission_groups) {
                     startActivity(
                         PermissionGroupActivity.newIntent(this)
                     )
                 },
-                MainItem(R.string.internal_storage) {
+                MainItem(R.string.app_internal_storage) {
                     startActivity(FileListActivity.newIntent(this, filesDir, false))
                 },
                 MainItem(R.string.cache) {
                     startActivity(FileListActivity.newIntent(this, cacheDir, false))
                 }
             ) + getExternalFilesDirs(null).map {
-                MainItem(R.string.external_storage) {
+                MainItem(R.string.app_external_storage) {
                     startActivity(FileListActivity.newIntent(this, it, true))
                 }
             } + listOf(
@@ -47,6 +48,9 @@ class MainActivity : AppCompatActivity() {
                             true
                         )
                     )
+                },
+                MainItem(R.string.external_storage) {
+                    startActivity(AllFilesActivity.newIntent(this))
                 }
             )
         )

@@ -37,7 +37,8 @@ class FileListActivity : AppCompatActivity() {
         }
 
         val layoutManager = LinearLayoutManager(this@FileListActivity)
-        adapter = FileListAdapter(pathFile)
+        adapter = FileListAdapter()
+        adapter.updateFiles(pathFile)
         binding.recyclerView.layoutManager = layoutManager
         binding.recyclerView.adapter = adapter
         binding.recyclerView.addItemDecoration(
@@ -58,7 +59,7 @@ class FileListActivity : AppCompatActivity() {
             Toast.makeText(this, "addFile: createNewFile Error", Toast.LENGTH_LONG).show()
         }
 
-        adapter.updateFiles()
+        adapter.updateFiles(pathFile)
     }
 
     companion object {

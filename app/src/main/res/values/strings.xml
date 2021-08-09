@@ -2,7 +2,8 @@
     <string name="app_name">Permissions</string>
     <string name="contacts">Contacts</string>
     <string name="permission_groups">Permission Groups</string>
-    <string name="internal_storage">Internal Storage</string>
+    <string name="app_internal_storage">App Internal Storage</string>
+    <string name="app_external_storage">App External Storage</string>
     <string name="external_storage">External Storage</string>
     <string name="documents">Documents</string>
     <string name="cache">Cache</string>
